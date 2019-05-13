@@ -1,6 +1,7 @@
 
 
 import React, { useState } from 'react'
+import './App.css'
 
 
 function useOnlineCount(socket) {
@@ -11,7 +12,7 @@ function useOnlineCount(socket) {
 
 function OnlineCount({socket}) {
   var count = useOnlineCount(socket)
-  return <div>在线人数： {count}</div>
+  return <div className="online-count">在线人数： {count}</div>
 }
 
 

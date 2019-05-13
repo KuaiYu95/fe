@@ -132,6 +132,8 @@ class PixelGrid extends Component {
       if (mouseMoveDistance < 3 && !this.state.isPickingColor) {
         this.handleDotClick(e)
       }
+      mouseMoveX = 0
+      mouseMoveY = 0
     })
   }
 
@@ -245,7 +247,7 @@ class PixelGrid extends Component {
       return null
     } else {
       return ReactDom.createPortal((
-        <button onClick={this.setPickColor}>
+        <button className="btn btn-info" onClick={this.setPickColor}>
           {this.state.isPickingColor ? '正在取色' : '取色'}
         </button>
       ), el)
@@ -258,10 +260,12 @@ class PixelGrid extends Component {
       <div style={{
         position: 'relative', 
         overflow: 'hidden', 
-        width: this.state.width, 
-        height: this.state.height, 
+        // width: this.state.width,
+        // height: this.state.height,
+        width: '600px', 
+        height: '600px', 
         display: 'inline-block', 
-        border: '1px solid'
+        border: '2px solid #ded'
       }}>
         {this.renderPickColorBtn()}
         <div ref={el => this.canvasWrapper = el} className="canvas-wrapper" style={{position:'absolute', top: 0, left: 0}}>

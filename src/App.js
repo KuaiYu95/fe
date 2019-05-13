@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import io from 'socket.io-client'
 import './App.css'
+import './bootstrap.min.css'
 import PixelGrid from './PixelGrid.js'
 import ColorSelect from './ColorSelect.js'
 import OnlineCount from './OnlineCount.js'
 import ChatRoom from './ChatRoom.js'
-// import { produce } from 'immer'
 
 class App extends Component {
   constructor(props) {
@@ -33,11 +33,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        <PixelGrid onPickColor={this.changeCurrentColor} currentColor={this.state.currentColor} socket={this.socket} />
-        <span id="color-pick-placeholder"></span>
-        <ColorSelect onChange={this.changeCurrentColor} color={this.state.currentColor} />
-        <OnlineCount socket={this.socket} />
-        <ChatRoom socket={this.socket} />
+        <div className="pixel-grid">
+          <PixelGrid onPickColor={this.changeCurrentColor} currentColor={this.state.currentColor} socket={this.socket} />
+        </div>
+        <div className="pick-color">
+          <ColorSelect onChange={this.changeCurrentColor} color={this.state.currentColor} />
+          <span id="color-pick-placeholder"></span>
+        </div>
+        <div className="chat">
+          <OnlineCount socket={this.socket} />
+          <ChatRoom socket={this.socket} />
+        </div>
       </div>
     )
   }

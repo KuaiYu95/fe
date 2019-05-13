@@ -31,3 +31,17 @@
     transform: rotate(360deg);
   }
 }
+
+.online-count {
+  font-size: 15px;
+  font-weight: bold;
+  color: #999;
+  text-align: right;
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
+.pixel-grid {
+  float: left;
+  margin-right: 50px;
+}
